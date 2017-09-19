@@ -27,3 +27,7 @@ with g1.device('/cpu:0'):
         tf.initialize_all_variables().run()
         with tf.variable_scope('', reuse=True):
             print sess.run(tf.get_variable('v'))
+
+# 计算模型 -- graph
+# 数据模型 -- tensor
+# 运行模型 -- session

@@ -21,9 +21,9 @@ with g.as_default():
     #with tf.variable_scope('', reuse=True):
         #print (tf.get_variable('a').eval(session=sess))
 
+# 嵌套顺序还是不太明白  这几个with
 with tf.Session(config=config, graph=g) as sess:
     tf.initialize_all_variables().run()
     with tf.variable_scope('', reuse=True):
-        print (tf.get_variable('a').eval())
-
-
+        with g.device('/gpu:0'):
+            print (tf.get_variable('a').eval())
